@@ -1,0 +1,69 @@
+:root {
+  color-scheme: light;
+  --ink: #17231f;
+  --muted: #63716b;
+  --line: #dfe7e3;
+  --surface: #ffffff;
+  --canvas: #f4f7f5;
+  --brand: #155f4b;
+  --brand-dark: #0c4939;
+  --accent: #dff1e9;
+  --warning: #9a6200;
+  --danger: #a23b3b;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--canvas); line-height: 1.5; }
+a { color: var(--brand); }
+.container { width: min(1080px, calc(100% - 2rem)); margin-inline: auto; }
+.site-header { color: white; background: var(--brand-dark); border-bottom: 4px solid #58b690; }
+.header-content { min-height: 68px; display: flex; align-items: center; justify-content: space-between; }
+.brand { color: white; font-size: 1.2rem; font-weight: 750; text-decoration: none; }
+.environment-label { color: #d8ebe4; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+main { min-height: calc(100vh - 150px); padding-block: 3.5rem; }
+.page-heading, .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; }
+.detail-heading { align-items: center; }
+.eyebrow { margin: 0 0 .35rem; color: var(--brand); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+h1, h2 { margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -.04em; }
+h2 { font-size: 1.35rem; }
+.lede { margin: .7rem 0 0; color: var(--muted); }
+.summary-count { color: var(--muted); white-space: nowrap; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 1rem; }
+.yard-card, .table-card, .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 28px rgba(23, 35, 31, .05); }
+.yard-card { padding: 1.35rem; }
+.yard-card h2 { margin: 1.25rem 0 .3rem; }
+.yard-card p { margin: 0; color: var(--muted); }
+.yard-card-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.yard-code { color: var(--muted); font-size: .82rem; font-weight: 700; letter-spacing: .08em; }
+.card-link { display: inline-block; margin-top: 1.35rem; font-weight: 700; text-decoration: none; }
+.status, .result { display: inline-flex; border-radius: 999px; padding: .28rem .65rem; font-size: .76rem; font-weight: 750; white-space: nowrap; }
+.status-active, .result-passed { color: #176548; background: #daf2e7; }
+.status-maintenance { color: var(--warning); background: #fff0c9; }
+.status-inactive, .result-issues_found { color: var(--danger); background: #fbe1e1; }
+.back-link { display: inline-block; margin-bottom: 1.5rem; font-weight: 650; text-decoration: none; }
+.section-heading { align-items: center; margin-top: 3rem; }
+.table-card { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 1rem 1.1rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { color: var(--muted); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
+tbody tr:last-child td { border-bottom: 0; }
+.empty-state { color: var(--muted); text-align: center; }
+.button, button { display: inline-flex; justify-content: center; border: 1px solid var(--brand); border-radius: 7px; padding: .68rem 1rem; color: white; background: var(--brand); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+.button:hover, button:hover { background: var(--brand-dark); }
+.button-secondary { color: var(--brand); background: white; }
+.form-card { max-width: 760px; padding: 1.5rem; }
+.form-card label { display: grid; gap: .45rem; margin-bottom: 1.15rem; font-weight: 700; }
+.field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+input, select, textarea { width: 100%; border: 1px solid #b8c6c0; border-radius: 7px; padding: .72rem .8rem; color: var(--ink); background: white; font: inherit; }
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--accent); border-color: var(--brand); }
+.form-actions { display: flex; justify-content: flex-end; gap: .7rem; margin-top: 1.5rem; }
+.site-footer { padding-block: 1.25rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+
+@media (max-width: 640px) {
+  main { padding-block: 2rem; }
+  .page-heading, .section-heading { align-items: flex-start; flex-direction: column; }
+  .field-grid { grid-template-columns: 1fr; gap: 0; }
+  th, td { padding: .8rem; }
+}

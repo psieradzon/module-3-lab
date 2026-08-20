@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% from "_labels.html" import status_label, result_label %}
+
+{% block title %}{{ yard.name }} · Hof-App{% endblock %}
+
+{% block content %}
+  <a class="back-link" href="{{ url_for('yard_list') }}">← Alle Höfe</a>
+  <div class="page-heading detail-heading">
+    <div>
+      <p class="eyebrow">{{ yard.code }} · {{ yard.city }}</p>
+      <h1>{{ yard.name }}</h1>
+    </div>
+    <span class="status status-{{ yard.status.value }}">{{ status_label(yard.status.value) }}</span>
+  </div>
+
+  <section class="section-heading">
+    <div>
+      <p class="eyebrow">Verlauf</p>
+      <h2>Inspektionen</h2>
+    </div>
+    <a class="button" href="{{ url_for('new_inspection_form', yard_id=yard.id) }}">Inspektion erfassen</a>
+  </section>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Prüfer</th>
+          <th>Ergebnis</th>
+          <th>Kommentar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for inspection in inspections %}
+          <tr>
+            <td>{{ inspection.inspection_date.strftime('%d.%m.%Y') }}</td>
+            <td>{{ inspection.inspector }}</td>
+            <td><span class="result result-{{ inspection.result.value }}">{{ result_label(inspection.result.value) }}</span></td>
+            <td>{{ inspection.comment or '—' }}</td>
+          </tr>
+        {% else %}
+          <tr>
+            <td class="empty-state" colspan="4">Noch keine Inspektionen erfasst.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

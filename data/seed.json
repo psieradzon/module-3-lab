@@ -1,0 +1,14 @@
+{
+  "yards": [
+    {"id": 1, "code": "YRD-001", "name": "Nordhof", "city": "Lindenhain", "status": "active"},
+    {"id": 2, "code": "YRD-002", "name": "Uferhof", "city": "Auenfeld", "status": "maintenance"},
+    {"id": 3, "code": "YRD-003", "name": "Zentralhof", "city": "Eichenberg", "status": "inactive"}
+  ],
+  "inspections": [
+    {"id": 1, "yard_id": 1, "inspection_date": "2026-07-14", "inspector": "Alex Morgan", "result": "passed", "comment": "Alle Sicherheitsbereiche waren frei."},
+    {"id": 2, "yard_id": 1, "inspection_date": "2026-04-08", "inspector": "Jordan Lee", "result": "issues_found", "comment": "Beschädigtes Schild am östlichen Eingang."},
+    {"id": 3, "yard_id": 2, "inspection_date": "2026-06-23", "inspector": "Sam Rivera", "result": "issues_found", "comment": "Beleuchtung in Ladezone B muss gewartet werden."},
+    {"id": 4, "yard_id": 2, "inspection_date": "2026-02-19", "inspector": "Alex Morgan", "result": "passed", "comment": "Keine Mängel festgestellt."},
+    {"id": 5, "yard_id": 3, "inspection_date": "2025-12-11", "inspector": "Jordan Lee", "result": "passed", "comment": "Letzte Inspektion, bevor der Hof außer Betrieb ging."}
+  ]
+}

@@ -1,0 +1,14 @@
+{% macro status_label(value) -%}
+{%- if value == 'active' -%}Aktiv
+{%- elif value == 'maintenance' -%}Wartung
+{%- elif value == 'inactive' -%}Inaktiv
+{%- else -%}{{ value }}
+{%- endif -%}
+{%- endmacro %}
+
+{% macro result_label(value) -%}
+{%- if value == 'passed' -%}Bestanden
+{%- elif value == 'issues_found' -%}Mängel gefunden
+{%- else -%}{{ value }}
+{%- endif -%}
+{%- endmacro %}

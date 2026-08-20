@@ -1,0 +1,15 @@
+{
+  "name": "Modul 3 Hof-App Lab",
+  "build": {"dockerfile": "Dockerfile"},
+  "postCreateCommand": "uv sync --locked",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {"label": "Hof-App", "onAutoForward": "openBrowser"}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["GitHub.copilot", "GitHub.copilot-chat", "ms-python.python"],
+      "settings": {"python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python"}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_labels.html" import status_label %}
+
+{% block title %}Höfe · Hof-App{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">Betrieb</p>
+      <h1>Höfe</h1>
+      <p class="lede">Standorte und ihren aktuellen Status prüfen.</p>
+    </div>
+    <span class="summary-count">{{ yards | length }} Standorte</span>
+  </div>
+
+  <div class="card-grid">
+    {% for yard in yards %}
+      <article class="yard-card">
+        <div class="yard-card-header">
+          <span class="yard-code">{{ yard.code }}</span>
+          <span class="status status-{{ yard.status.value }}">{{ status_label(yard.status.value) }}</span>
+        </div>
+        <h2>{{ yard.name }}</h2>
+        <p>{{ yard.city }}</p>
+        <a class="card-link" href="{{ url_for('yard_detail', yard_id=yard.id) }}">Details anzeigen <span aria-hidden="true">→</span></a>
+      </article>
+    {% else %}
+      <p class="empty-state">Keine Höfe vorhanden.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

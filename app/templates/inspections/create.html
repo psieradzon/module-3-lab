@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% from "_labels.html" import result_label %}
+
+{% block title %}Neue Inspektion · {{ yard.name }}{% endblock %}
+
+{% block content %}
+  <a class="back-link" href="{{ url_for('yard_detail', yard_id=yard.id) }}">← {{ yard.name }}</a>
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">{{ yard.code }}</p>
+      <h1>Inspektion erfassen</h1>
+      <p class="lede">Eine abgeschlossene Inspektion zur Historie dieses Hofs hinzufügen.</p>
+    </div>
+  </div>
+
+  <form class="form-card" method="post" action="{{ url_for('create_inspection', yard_id=yard.id) }}">
+    <div class="field-grid">
+      <label>
+        Inspektionsdatum
+        <input type="date" name="inspection_date" required>
+      </label>
+      <label>
+        Prüfer
+        <input type="text" name="inspector" minlength="2" maxlength="100" required>
+      </label>
+    </div>
+    <label>
+      Ergebnis
+      <select name="result" required>
+        {% for result in results %}
+          <option value="{{ result.value }}">{{ result_label(result.value) }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      Kommentar
+      <textarea name="comment" maxlength="500" rows="5" placeholder="Optionale Hinweise zur Inspektion"></textarea>
+    </label>
+    <div class="form-actions">
+      <a class="button button-secondary" href="{{ url_for('yard_detail', yard_id=yard.id) }}">Abbrechen</a>
+      <button type="submit">Inspektion speichern</button>
+    </div>
+  </form>
+{% endblock %}
